@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SpringBoardLayout.MainPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" xmlns:local="clr-namespace:SpringBoardLayout">
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <BoxView Grid.Row="0" Color="Blue" />
+        <BoxView Grid.Row="1" Color="Yellow" />
+        <controls:CarouselViewControl Grid.Row="2" BackgroundColor="Green">
+            <controls:CarouselViewControl.ItemsSource>
+                <x:Array Type="{x:Type View}">
+
+                    <!--  Page1 Display Photo  -->
+                    <BoxView BackgroundColor="Orange" />
+
+                    <!--  Page2 Display Bio  -->
+                    <BoxView BackgroundColor="Green" />
+
+                    <!--  Page2 Display contact information  -->
+                    <BoxView BackgroundColor="Blue" />
+
+                </x:Array>
+            </controls:CarouselViewControl.ItemsSource>
+        </controls:CarouselViewControl>
+        <Grid Grid.Row="3" Margin="10" ColumnSpacing="20" HorizontalOptions="Center" RowSpacing="50" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO" />
+                <ColumnDefinition Width="AUTO" />
+                <ColumnDefinition Width="AUTO" />
+            </Grid.ColumnDefinitions>
+            <local:SwitchboardButton Grid.Row="0" Grid.Column="0">
+                <local:SwitchboardButton.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ButtonTapped" />
+                </local:SwitchboardButton.GestureRecognizers>
+            </local:SwitchboardButton>
+            <local:SwitchboardButton Grid.Row="0" Grid.Column="1" />
+            <local:SwitchboardButton Grid.Row="0" Grid.Column="2" />
+            <local:SwitchboardButton Grid.Row="1" Grid.Column="0" />
+            <local:SwitchboardButton Grid.Row="1" Grid.Column="1" />
+            <local:SwitchboardButton Grid.Row="1" Grid.Column="2" />
+
+        </Grid>
+        <BoxView Grid.Row="4" Color="Blue" />
+    </Grid>
+
+</ContentPage>
